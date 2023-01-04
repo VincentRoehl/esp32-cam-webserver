@@ -2,6 +2,7 @@
 #include <esp_int_wdt.h>
 #include <esp_task_wdt.h>
 #include <WiFi.h>
+#include "Arduino.h"
 #include <DNSServer.h>
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
