@@ -101,7 +101,7 @@ extern void serialDump();
 #if defined(STREAM_PORT)
     int streamPort = STREAM_PORT;
 #else
-    int streamPort = 81;
+    int streamPort = 8080;
 #endif
 
 #if !defined(WIFI_WATCHDOG)
@@ -278,6 +278,9 @@ void setLamp(int newVal) {
     }
 #endif
 }
+void switchLamp(){
+
+}
 
 void printLocalTime(bool extraData=false) {
     struct tm timeinfo;
@@ -336,13 +339,14 @@ void StartCamera() {
     config.grab_mode = CAMERA_GRAB_LATEST;
     // Pre-allocate large buffers
     if(psramFound()){
+        Serial.println("PSRAM found!");
         config.frame_size = FRAMESIZE_UXGA;
-        config.jpeg_quality = 10;
-        config.fb_count = 2;
+        config.jpeg_quality = 50;
+        config.fb_count = 6;
     } else {
         config.frame_size = FRAMESIZE_SVGA;
         config.jpeg_quality = 12;
-        config.fb_count = 1;
+        config.fb_count = 3;
     }
 
     #if defined(CAMERA_MODEL_ESP_EYE)
@@ -795,7 +799,6 @@ void setup() {
     } else {
         Serial.printf("\r\nCamera unavailable due to initialisation errors.\r\n\r\n");
     }
-
     // Info line; use for Info messages; eg 'This is a Beta!' warnings, etc. as necesscary
     // Serial.print("\r\nThis is the 4.1 beta\r\n");
 

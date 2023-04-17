@@ -35,7 +35,7 @@
 
 #ifndef MIN_FRAME_TIME
 	#warning "MIN_FRAME_TIME undefined, using default value of 500"
-	#define MIN_FRAME_TIME 500
+	#define MIN_FRAME_TIME 20
 #endif
 
 #include "cam_streamer.h"
@@ -44,6 +44,7 @@
 extern void flashLED(int flashtime);
 extern void setLamp(int newVal);
 extern void printLocalTime(bool extraData);
+extern void switchLamp();
 
 // External variables declared in the main .ino
 extern char myName[];
